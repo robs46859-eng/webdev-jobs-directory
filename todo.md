@@ -1,0 +1,51 @@
+# Project TODO
+
+- [x] Basic noir detective room layout with Batman TAS aesthetic
+- [x] Interactive room hotspots with M3 violet glow effects
+- [x] Blueprint Board (job directory with 41 postings)
+- [x] Case Board (sticky notes with status tracking)
+- [x] Filing Cabinet (portfolio/bio storage)
+- [x] Email Compose widget (DeskWidget)
+- [x] Calendar Panel for deadlines
+- [x] Weather Window (fictional Gotham forecast)
+- [x] Retro Radio (2000s skater music player)
+- [x] Wall Clock
+- [x] Keyboard shortcuts (B, C, F, E, L, W, R, ?, Esc)
+- [x] Help Overlay
+- [x] Landing page (/landing) with service cards, weather, Joker clock, Formspree contact form
+- [x] Portfolio page (/portfolio) with 5 project case files
+- [x] ARKHAM header with Orbitron font and violet glow
+- [x] Bottom hint bar with all controls
+- [x] Full-stack upgrade (database, server, user management)
+- [x] Database schema pushed
+- [x] App.tsx routes restored (/, /landing, /portfolio)
+- [x] Save checkpoint for deployment
+- [ ] Publish and bind arkhamprison.com domain
+- [x] Custom username/password login system
+- [x] Login page UI with noir theme
+- [x] Protected admin routes
+- [x] Session management (JWT cookies)
+- [x] Database schema for custom auth users
+- [x] Tests for auth flow
+- [x] Remove custom login system (login page, auth routes, local_users table)
+- [x] Wire email desk button to real inbox API (AgentMail Smithgroup inbox)
+- [x] Convert storage cabinet (email/calendar toggle) to CRM panel
+- [x] Import Captivate CRM CSV data (27 leads) into database
+- [x] CRM panel: view leads, search, filter by status/location, view email sequences
+- [x] Wire radio YouTube button to YouTube Data API for real playback
+- [x] Integrate Gemini API key (shared Google API key)
+- [x] Store API keys as secrets (AgentMail API key, inbox IDs, Google API key)
+- [x] Gemini-powered email rewrite tRPC procedure on server
+- [x] AI rewrite button in CRM panel for personalizing emails
+- [x] Editable draft preview before sending
+- [x] Tests for Gemini integration
+- [x] Fix email sending bug (emails not sending, panel disappears)
+- [x] Debug AI rewrite button state management
+- [x] Debug send button state management
+- [x] Verify AgentMail API integration
+- [x] Test email delivery end-to-end
+- [x] YouTube OAuth authentication (sign in with robs46859@gmail.com)
+- [x] YouTube video player component
+- [x] YouTube search functionality
+- [x] Persist YouTube auth token
+- [x] Tests for YouTube OAuth flow

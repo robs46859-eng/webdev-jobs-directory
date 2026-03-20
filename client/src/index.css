@@ -1,0 +1,247 @@
+/* ============================================================
+   THE BOARD ROOM — Noir Comic Design System
+   Style: Batman TAS / detective break room
+   Palette: Slate blue-grey walls, olive/khaki metal, yellow-green fluorescent, black shadows
+   Typography: Oswald (bold headers) + Special Elite (typewriter body) + DM Sans (UI)
+   Mood: Gritty noir detective room — cracked walls, harsh lighting, scattered papers
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Noir palette */
+  --noir-wall: #3a4a5c;
+  --noir-dark: #1a2030;
+  --noir-black: #0d1018;
+  --noir-metal: #5a6040;
+  --noir-metal-light: #7a8060;
+  --noir-fluorescent: #d946ef;
+  --noir-fluorescent-dim: #c084fc;
+  --noir-paper: #e8e0c8;
+  --noir-paper-aged: #d4c8a0;
+  --noir-cork: #8B6914;
+  --noir-sticky: #e879f9;
+  --noir-blueprint: #1a2a4a;
+  --noir-blueprint-grid: #2a4a7a;
+  --noir-red: #c03020;
+
+  --radius: 0.125rem;
+
+  --background: oklch(0.25 0.03 240);
+  --foreground: oklch(0.92 0.02 80);
+  --card: oklch(0.30 0.03 240);
+  --card-foreground: oklch(0.92 0.02 80);
+  --popover: oklch(0.28 0.03 240);
+  --popover-foreground: oklch(0.92 0.02 80);
+  --primary: oklch(0.82 0.15 100);
+  --primary-foreground: oklch(0.15 0.02 100);
+  --secondary: oklch(0.35 0.04 240);
+  --secondary-foreground: oklch(0.85 0.02 80);
+  --muted: oklch(0.32 0.03 240);
+  --muted-foreground: oklch(0.65 0.02 80);
+  --accent: oklch(0.82 0.15 100);
+  --accent-foreground: oklch(0.15 0.02 100);
+  --destructive: oklch(0.55 0.20 25);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.40 0.04 240);
+  --input: oklch(0.35 0.04 240);
+  --ring: oklch(0.82 0.15 100);
+  --chart-1: oklch(0.82 0.15 100);
+  --chart-2: oklch(0.55 0.20 25);
+  --chart-3: oklch(0.50 0.10 200);
+  --chart-4: oklch(0.40 0.08 240);
+  --chart-5: oklch(0.65 0.05 80);
+  --sidebar: oklch(0.18 0.02 240);
+  --sidebar-foreground: oklch(0.85 0.02 80);
+  --sidebar-primary: oklch(0.82 0.15 100);
+  --sidebar-primary-foreground: oklch(0.15 0.02 100);
+  --sidebar-accent: oklch(0.28 0.03 240);
+  --sidebar-accent-foreground: oklch(0.85 0.02 80);
+  --sidebar-border: oklch(0.35 0.04 240);
+  --sidebar-ring: oklch(0.82 0.15 100);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  }
+  h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href] {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .flex { min-height: 0; min-width: 0; }
+
+  /* Blueprint board surface */
+  .blueprint-surface {
+    background: #1a2a4a;
+    background-image:
+      linear-gradient(rgba(60,100,180,0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(60,100,180,0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+    border: 3px solid #3a4a5a;
+    box-shadow:
+      inset 0 0 40px rgba(0,0,30,0.5),
+      0 0 0 4px #2a3a4a,
+      0 4px 20px rgba(0,0,0,0.6);
+  }
+
+  /* Cork board surface */
+  .cork-surface {
+    background: #8B6914;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23704f0a' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    border: 4px solid #5a3a08;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.5);
+  }
+
+  /* Sticky note */
+  .sticky-note {
+    background: #e8d840;
+    border-bottom: 2px solid #c8b820;
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.3), inset 0 -2px 4px rgba(0,0,0,0.1);
+    font-family: 'Special Elite', cursive;
+    transform-origin: center;
+  }
+
+  /* Job card on blueprint */
+  .blueprint-card {
+    background: rgba(232, 224, 200, 0.95);
+    border: 1px solid #c4b890;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.4);
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s ease;
+    position: relative;
+  }
+  .blueprint-card::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #c03020;
+    border-radius: 50%;
+    border: 1px solid #901010;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+  .blueprint-card:hover {
+    transform: translateY(-2px) rotate(0.3deg);
+    box-shadow: 4px 6px 14px rgba(0,0,0,0.5);
+  }
+
+  /* Filing cabinet drawer */
+  .cabinet-drawer {
+    background: linear-gradient(180deg, #6a7050 0%, #5a6040 40%, #4a5030 100%);
+    border: 2px solid #3a4020;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.4);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  .cabinet-drawer:hover {
+    background: linear-gradient(180deg, #7a8060 0%, #6a7050 40%, #5a6040 100%);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), 0 3px 8px rgba(0,0,0,0.5);
+  }
+
+  /* Fluorescent glow text */
+  .fluorescent-text {
+    color: #c8d840;
+    text-shadow: 0 0 8px rgba(200, 216, 64, 0.6), 0 0 20px rgba(200, 216, 64, 0.3);
+  }
+
+  /* Aged paper card */
+  .aged-paper {
+    background: #e8e0c8;
+    border: 1px solid #c4b890;
+    font-family: 'Special Elite', cursive;
+  }
+
+  /* Platform stamps */
+  .stamp-upwork { background: #1a3a1a; color: #40c840; border: 2px solid #40c840; }
+  .stamp-freelancer { background: #1a1a3a; color: #4080ff; border: 2px solid #4080ff; }
+  .stamp-pph { background: #3a2a0a; color: #e8a020; border: 2px solid #e8a020; }
+
+  /* Noir button */
+  .btn-noir {
+    background: #c8d840;
+    color: #1a2030;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    border: 1px solid #a8b820;
+    transition: all 0.15s ease;
+  }
+  .btn-noir:hover {
+    background: #d8e850;
+    box-shadow: 0 0 12px rgba(200,216,64,0.4);
+  }
+
+  /* Status badge */
+  .status-applied { background: #1a3a1a; color: #40c840; border: 1px solid #40c840; }
+  .status-followed { background: #3a2a0a; color: #e8a020; border: 1px solid #e8a020; }
+  .status-won { background: #1a1a3a; color: #4080ff; border: 1px solid #4080ff; }
+  .status-none { background: #2a2a2a; color: #888; border: 1px solid #555; }
+}
