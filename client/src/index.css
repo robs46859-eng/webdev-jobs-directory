@@ -244,4 +244,35 @@
   .status-followed { background: #3a2a0a; color: #e8a020; border: 1px solid #e8a020; }
   .status-won { background: #1a1a3a; color: #4080ff; border: 1px solid #4080ff; }
   .status-none { background: #2a2a2a; color: #888; border: 1px solid #555; }
+
+  /* Dashboard Glassmorphism */
+  .glass-panel {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 1rem;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .dashboard-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/room-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
 }

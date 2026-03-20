@@ -15,8 +15,14 @@ interface RateItem { id: string; service: string; rate: string; notes: string; }
 
 const defaultBio = "I'm a freelance web developer specializing in WordPress, React, and custom HTML/CSS builds. I deliver clean, fast, and responsive websites on time and within budget.";
 
-export default function FilingCabinet({ open, onToggle }: { open: boolean; onToggle: () => void }) {
-  const [activeDrawer, setActiveDrawer] = useState<Drawer>(null);
+export default function FilingCabinet({ open, onToggle, initialDrawer = null }: { open: boolean; onToggle: () => void; initialDrawer?: Drawer }) {
+  const [activeDrawer, setActiveDrawer] = useState<Drawer>(initialDrawer);
+
+  useEffect(() => {
+    if (open && initialDrawer) {
+      setActiveDrawer(initialDrawer);
+    }
+  }, [open, initialDrawer]);
 
   // Portfolio links
   const [links, setLinks] = useState<PortfolioLink[]>(() => {
